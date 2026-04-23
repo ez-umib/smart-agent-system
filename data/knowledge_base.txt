@@ -1,0 +1,5 @@
+Python virtual environments isolate project dependencies.
+Use pytest to run automated tests for Python code.
+An agent workflow can use tools such as calculators and file readers.
+Deployment for small projects can start as a command-line interface.
+Always validate user input before processing file paths.
