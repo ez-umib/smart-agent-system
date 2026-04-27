@@ -1,4 +1,4 @@
-# Boma Agent System
+# Smart Agent System
 
 This repository contains a practical Python implementation of an AI-assisted, tool-using agent workflow.
 
@@ -8,7 +8,7 @@ The system accepts a user query and solves it through an agent pipeline:
 
 1. `PlannerAgent` identifies the task type.
 2. `ExecutorAgent` calls a suitable tool.
-3. `BomaAssistant` returns a structured result with reasoning, tool calls, and final answer.
+3. `SmartAssistant` returns a structured result with reasoning, tool calls, and final answer.
 
 Supported flows:
 

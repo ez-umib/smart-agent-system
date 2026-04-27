@@ -1,4 +1,4 @@
-# Boma Agent System - Implementation Report
+# Smart Agent System - Implementation Report
 
 ## 1) Project objective
 
@@ -17,7 +17,7 @@ The design was implemented as a modular architecture:
 
 - `PlannerAgent` decides which action to take.
 - `ExecutorAgent` maps actions to tools and executes them.
-- `BomaAssistant` orchestrates planning, execution, and response formatting.
+- `SmartAssistant` orchestrates planning, execution, and response formatting.
 - `main.py` exposes a CLI entry point for users.
 
 Main modules:

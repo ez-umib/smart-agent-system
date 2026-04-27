@@ -1,3 +1,3 @@
-from .agent import BomaAssistant
+from .agent import SmartAssistant
 
-__all__ = ["BomaAssistant"]
+__all__ = ["SmartAssistant"]

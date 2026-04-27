@@ -3,12 +3,12 @@ from __future__ import annotations
 import argparse
 import json
 
-from .agent import BomaAssistant
+from .agent import SmartAssistant
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="boma-assistant",
+        prog="smart-assistant",
         description="AI-assisted tool-using agent demo project.",
     )
     parser.add_argument("--query", required=True, help="User request for the assistant.")
@@ -24,7 +24,7 @@ def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
 
-    assistant = BomaAssistant(knowledge_base_path=args.knowledge_base)
+    assistant = SmartAssistant(knowledge_base_path=args.knowledge_base)
     result = assistant.run(args.query)
     print(
         json.dumps(

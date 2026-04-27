@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "boma-agent-system"
+name = "smart-agent-system"
 version = "0.1.0"
 description = "AI-assisted Python agent with tool usage"
 readme = "README.md"

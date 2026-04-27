@@ -67,7 +67,7 @@ class ExecutorAgent:
         raise ValueError(f"Unknown action: {action}")
 
 
-class BomaAssistant:
+class SmartAssistant:
     def __init__(self, knowledge_base_path: str | None = None) -> None:
         base = Path(__file__).resolve().parents[2]
         default_kb = base / "data" / "knowledge_base.txt"

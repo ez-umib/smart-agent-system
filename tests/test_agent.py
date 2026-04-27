@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from boma_agent import BomaAssistant
+from boma_agent import SmartAssistant
 
 
 def test_agent_math_flow() -> None:
-    agent = BomaAssistant()
+    agent = SmartAssistant()
     result = agent.run("4 + 5 * 2")
     assert result.tool_calls
     assert result.tool_calls[0].tool_name == "calculator"
@@ -14,7 +14,7 @@ def test_agent_math_flow() -> None:
 def test_agent_file_flow(tmp_path: Path) -> None:
     file_path = tmp_path / "note.txt"
     file_path.write_text("alpha beta", encoding="utf-8")
-    agent = BomaAssistant()
+    agent = SmartAssistant()
     result = agent.run(f"read file {file_path}")
     assert result.tool_calls[0].tool_name == "file_reader"
     assert "alpha beta" in result.answer
@@ -27,7 +27,7 @@ def test_agent_knowledge_flow(tmp_path: Path) -> None:
         "Agents can call tools.\n",
         encoding="utf-8",
     )
-    agent = BomaAssistant(knowledge_base_path=str(kb_path))
+    agent = SmartAssistant(knowledge_base_path=str(kb_path))
     result = agent.run("How do I test with pytest?")
     assert result.tool_calls[0].tool_name == "keyword_search"
     assert "pytest" in result.answer.lower()
