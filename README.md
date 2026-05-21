@@ -94,5 +94,5 @@ No environment variables are required in this version.
 
 ## Submission documents
 
-- `JOURNAL.md` contains Step 1 (24.04) journal requirements in English.
-- `REPORT.md` contains full implementation-phase evidence for later submission stages.
+- `JOURNAL.md` — journal by submission stage (Step 1–4, English).
+- `REPORT.md` — full implementation, testing, deployment, and data-flow report (English).

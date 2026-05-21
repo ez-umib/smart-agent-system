@@ -1,9 +1,13 @@
+"""Local file reading tool with path validation."""
+
 from __future__ import annotations
 
 from pathlib import Path
 
 
 class FileReaderTool:
+    """Reads UTF-8 text files and optionally truncates long output."""
+
     name = "file_reader"
 
     def run(self, path: str, max_chars: int = 2000) -> str:

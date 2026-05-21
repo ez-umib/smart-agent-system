@@ -1,3 +1,5 @@
+"""Safe arithmetic evaluation tool using AST whitelisting."""
+
 from __future__ import annotations
 
 import ast
@@ -5,6 +7,8 @@ import operator
 
 
 class CalculatorTool:
+    """Evaluates numeric expressions without unsafe code execution."""
+
     name = "calculator"
 
     _allowed_operators = {

@@ -1,3 +1,5 @@
+"""Multi-agent workflow: planning, tool execution, and response formatting."""
+
 from __future__ import annotations
 
 import re
@@ -12,10 +14,14 @@ from .tools.keyword_search import KeywordSearchTool
 
 @dataclass
 class ExecutionContext:
+    """Shared runtime settings passed to tools during execution."""
+
     knowledge_base_path: str
 
 
 class PlannerAgent:
+    """Maps free-text user input to an action name and parameters."""
+
     def create_plan(self, query: str) -> tuple[str, dict[str, str]]:
         lower = query.lower()
 
@@ -34,6 +40,8 @@ class PlannerAgent:
 
 
 class ExecutorAgent:
+    """Routes planned actions to the matching tool implementation."""
+
     def __init__(self) -> None:
         self.calculator = CalculatorTool()
         self.file_reader = FileReaderTool()
@@ -68,6 +76,8 @@ class ExecutorAgent:
 
 
 class SmartAssistant:
+    """Orchestrates planning, execution, error handling, and final answers."""
+
     def __init__(self, knowledge_base_path: str | None = None) -> None:
         base = Path(__file__).resolve().parents[2]
         default_kb = base / "data" / "knowledge_base.txt"

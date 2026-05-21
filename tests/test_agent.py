@@ -31,3 +31,12 @@ def test_agent_knowledge_flow(tmp_path: Path) -> None:
     result = agent.run("How do I test with pytest?")
     assert result.tool_calls[0].tool_name == "keyword_search"
     assert "pytest" in result.answer.lower()
+
+
+def test_agent_handles_invalid_file_path() -> None:
+    agent = SmartAssistant()
+    result = agent.run("read file /tmp/missing-smart-agent-file.txt")
+    assert result.tool_calls
+    assert result.tool_calls[0].success is False
+    assert "Request failed" in result.answer
+    assert "not found" in result.tool_calls[0].output.lower()

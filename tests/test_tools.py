@@ -1,3 +1,4 @@
+import pytest
 from pathlib import Path
 
 from boma_agent.tools.calculator import CalculatorTool
@@ -28,3 +29,21 @@ def test_keyword_search_returns_matching_lines(tmp_path: Path) -> None:
     tool = KeywordSearchTool()
     result = tool.run("testing with pytest", str(corpus))
     assert "pytest" in result.lower()
+
+
+def test_calculator_rejects_empty_expression() -> None:
+    tool = CalculatorTool()
+    with pytest.raises(ValueError, match="cannot be empty"):
+        tool.run("   ")
+
+
+def test_calculator_rejects_unsafe_expression() -> None:
+    tool = CalculatorTool()
+    with pytest.raises(ValueError, match="Unsupported expression node"):
+        tool.run("__import__('os').system('echo')")
+
+
+def test_file_reader_rejects_missing_file() -> None:
+    tool = FileReaderTool()
+    with pytest.raises(FileNotFoundError):
+        tool.run("/tmp/does-not-exist-smart-agent.txt")

@@ -1,9 +1,13 @@
+"""Keyword-based search over a local knowledge-base text file."""
+
 from __future__ import annotations
 
 from pathlib import Path
 
 
 class KeywordSearchTool:
+    """Returns top matching lines from a corpus for a user question."""
+
     name = "keyword_search"
 
     def run(self, query: str, corpus_path: str, top_k: int = 3) -> str:
